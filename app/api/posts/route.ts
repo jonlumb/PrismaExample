@@ -2,16 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-
 import { postSchema } from '@/lib/schemas';
 
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const formData = await request.json();
     
-    // Validate again on server side (important for security)
-    const result = postSchema.safeParse(body);
+    const result = postSchema.safeParse(formData);
     
     if (!result.success) {
       return NextResponse.json(
@@ -20,9 +18,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const title = result.data.title;
+    const content = result.data.content;
+
     await prisma.post.create({
       data: {
-        ...result.data,
+        title,
+        content,
         authorId: 1,
       },
     });

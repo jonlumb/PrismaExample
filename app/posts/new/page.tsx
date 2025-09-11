@@ -1,10 +1,11 @@
 'use client'
 
 import Form from "next/form";
-import { z } from 'zod';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { z } from 'zod';
 import { postSchema } from '@/lib/schemas';
+
 
 export default function NewPost() {
   const [errors, setErrors] = useState<Record<string, string[]>>({});
@@ -36,7 +37,6 @@ export default function NewPost() {
       if (response.ok) {
         router.push('/posts');
       } else {
-        // Handle API errors
         setErrors({ general: ['Failed to create post'] });
       }
     } catch (error) {
