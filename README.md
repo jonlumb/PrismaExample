@@ -60,5 +60,5 @@ flowchart TD
 	C -- Three --> F["fa:fa-car Car"]
 	n1["Sample Label"]
 
-	n1@{ img: "https://api.iconify.design/logos/aws-elb.svg", label: "ELB", pos: "b", w: 60, h: 60, constraint: "on" }
+	n1@{ icon: "aws:aws-cloud-logo", pos: "b"}
 ```
