@@ -50,3 +50,15 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+```mermaid
+flowchart TD
+	A["Christmas"] -- Get money --> B("Go shopping")
+	B --> C{"Let me think"}
+	C -- One --> D["Laptop"]
+	C -- Two --> E["iPhone"]
+	C -- Three --> F["fa:fa-car Car"]
+	n1["Sample Label"]
+
+	n1@{ img: "https://api.iconify.design/logos/aws-elb.svg", label: "ELB", pos: "b", w: 60, h: 60, constraint: "on" }
+```
